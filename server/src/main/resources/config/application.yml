@@ -1,0 +1,23 @@
+#----------------------------COMMON profile---------------------------------------
+spring:
+  application:
+    name: server
+  flyway:
+    locations:
+      - classpath:db/migrations/ddl
+      - classpath:db/migrations/dml
+  datasource:
+    url: jdbc:tc:postgresql:12:///test
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+
+server:
+  port: 8090
+  shutdown: graceful
+  servlet:
+    context-path: /
+
+---
